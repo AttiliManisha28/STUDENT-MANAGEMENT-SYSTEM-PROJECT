@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Communication</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        form {
+            width: 50%;
+            margin: auto;
+        }
+        .message-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 15px auto;
+            width: 60%;
+            background-color: #f9f9f9;
+        }
+        .timestamp {
+            font-size: 0.85em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align:center;">Post a Message</h2>
+    <form method="POST">
+        <label for="title">Title:</label><br>
+        <input type="text" name="title" required><br><br>
+
+        <label for="body">Message:</label><br>
+        <textarea name="body" rows="5" required></textarea><br><br>
+
+        <button type="submit">Post</button>
+    </form>
+
+    <hr>
+    <h2 style="text-align:center;">All Messages</h2>
+
+    {% for msg in messages %}
+    <div class="message-box">
+        <h3>{{ msg[1] }}</h3>
+        <p>{{ msg[2] }}</p>
+        <p class="timestamp">Posted on: {{ msg[3] }}</p>
+    </div>
+    {% endfor %}
+</body>
+</html>

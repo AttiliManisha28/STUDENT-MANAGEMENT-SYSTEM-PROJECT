@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Attendance</title>
+</head>
+<body>
+    <h1>Edit Attendance Record</h1>
+
+    <form method="POST">
+        <label for="student_id">Student:</label>
+        <select name="student_id" required>
+            {% for id, name in students %}
+                <option value="{{ id }}" {% if id == record[3] %}selected{% endif %}>{{ name }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="date">Date:</label>
+        <input type="date" name="date" value="{{ record[1] }}" required><br>
+
+        <label for="status">Status:</label>
+        <select name="status" required>
+            <option value="Present" {% if record[2] == 'Present' %}selected{% endif %}>Present</option>
+            <option value="Absent" {% if record[2] == 'Absent' %}selected{% endif %}>Absent</option>
+        </select><br>
+
+        <button type="submit">Update Attendance</button>
+    </form>
+</body>
+</html>

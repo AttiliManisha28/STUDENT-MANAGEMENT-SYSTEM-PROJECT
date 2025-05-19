@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Dashboard</h1>
+        <div class="features">
+            <a href="{{ url_for('enrollment') }}" class="feature-btn">📋 Student Enrollment</a>
+            <a href="{{ url_for('attendance') }}" class="feature-btn">📅 Attendance Tracking</a>
+            <a href="{{ url_for('grades') }}" class="feature-btn">📊 Grade Management</a>
+            <a href="{{ url_for('communication') }}" class="feature-btn">💬 Communication</a>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

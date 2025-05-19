@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Grade</title>
+</head>
+<body>
+    <h2>Edit Grade</h2>
+    <form method="POST">
+        <label for="student_id">Student:</label>
+        <select name="student_id" required>
+            {% for student in students %}
+            <option value="{{ student[0] }}" {% if student[0] == grade[1] %}selected{% endif %}>{{ student[1] }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="subject">Subject:</label>
+        <input type="text" name="subject" value="{{ grade[2] }}" required><br><br>
+
+        <label for="grade">Grade:</label>
+        <input type="text" name="grade" value="{{ grade[3] }}" required><br><br>
+
+        <button type="submit">Update Grade</button>
+    </form>
+</body>
+</html>
